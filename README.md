@@ -23,10 +23,11 @@ WiringPi é uma biblioteca escrita em linguagem C para os dispositivos como Oran
 ## Clientes MQTT Paho
 
 Paho é uma biblioteca de código aberto para implementação de protocolos MQTT em várias linguagens, incluindo C. Desenvolvida pela Eclipse Foundation, suporta dispositivos como Raspberry Pi e Orange Pi. O MQTT é um protocolo leve usado na IoT. Com o Paho, é possível estabelecer conexões MQTT, publicar e assinar tópicos. A biblioteca oferece recursos avançados, como autenticação e QoS. A implementação Paho MQTT C é fácil de integrar em projetos em C e existem versões para Python, Java e C++. O Paho permite criar aplicativos de IoT que se conectam a um broker MQTT e trocam dados de maneira eficiente. É amplamente usado na comunidade de desenvolvimento de IoT. Mais informações podem ser encontradas em https://github.com/eclipse/paho.mqtt.c . OU, https://www.eclipse.org/paho/index.php?page=downloads.php.
-
-	Cliente Python: https://www.eclipse.org/paho/index.php?page=clients/python/index.php
+	
 	Cliente C: https://www.eclipse.org/paho/index.php?page=clients/c/index.php
  	Cliente C++: https://www.eclipse.org/paho/index.php?page=clients/cpp/index.php
+  	Cliente Python: https://www.eclipse.org/paho/index.php?page=clients/python/index.php
+   
 Foi necessário também adicionar algumas bibliotecas que não estavam instaladas no Arduíno IDE dos computadores do laboratório. Elas estão na seguinte pasta deste projeto: https://github.com/vini-insight/IOT/tree/main/libsArduinoIDE . Basta fazer download e instalar manualmente no Arduíno IDE.
 
 ## Computadores do Laboratório
@@ -679,13 +680,13 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
     <td>0b00100101</td>
     <td align="center">LED on</td>
     <td>0b00111111</td>
-    <td align="center">BROADCAST</td>
+    <td align="center">sensor ERRO</td>
   </tr>
   <tr>
     <td>0b00100110</td>
     <td align="center">LED off</td>
     <td>0b00000000</td>
-    <td align="center">sensor ERRO</td>
+    <td align="center">BROADCAST</td>
   </tr>
 </tbody>
 </table>
@@ -731,7 +732,7 @@ Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando
  
 Publica nos seguintes tópicos: "PROTOCOLCODEST", "an4log", "d1g", "d2g", "GRAPHT" para enviar comandos e para enviar valores da conexão serial e controlar plotagem do gráfico. Assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (para sincronizar valores mensurados com LCD e saber o status de funcionamento da nodeMCU ( se node responde).
 
-## Clinete C++ no Mmódulo nodeMCU
+## Clinete C++ no Módulo nodeMCU
 
 Todos os clientes das unidades de sensoriamento remotas assinam o mesmo tópico "PROTOCOLCODEST" onde recebem os comandos. Todas Publicam nos seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" onde respondem a comandos e enviam valores mensurados.
 
