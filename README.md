@@ -732,13 +732,15 @@ Se o sensor estiver conectado ele retorna o valor da medida. Se não obter respo
 
 Executamos os mesmos testes feitos para cada sensor individualmente.
 
-## enviar mensagem para todos (BROADCAST)
+## Enviar mensagem para todos (BROADCAST)
 
 Neste item simulamos via código como se existissem mais de uma nodeMCU concetada, no entanto algumas vezes obtivemos respostas incoerentes. Este foi o único teste que falhou.
 
 # Vídeo Demonstrativo
 
 https://github.com/vini-insight/IOinterface/assets/7541966/53370b7c-20af-48bf-aba9-2e53074c07bf
+
+<!-- <p>inserir viídeo aqui.</p> -->
 
 # Conclusão
 
