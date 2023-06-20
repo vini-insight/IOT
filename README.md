@@ -574,7 +574,23 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 <p>Existe um fio conectando o pino PA13 da Orange Pi com o pino GPIO3 da nodeMCU, e, outro fio conectando o pino PA14 da Orange Pi com o pino GPIO1 da nodeMCU. Este esquema faz a comunicação serial via inteface UART onde todos as requisições e comandos são enviados pela Orange Pi. A nodeMCU recebe os comandos e responde as requisições.</p>
 
-# Comunicação wireless entre Orange Pi e nodeMCU via MQTT
+# Protocolo MQTT
+
+MQTT (Message Queuing Telemetry Transport) é um protocolo de comunicação leve e de mensagens assíncronas amplamente utilizado em aplicações de Internet das Coisas (IoT) e sistemas de mensagens em tempo real. Ele foi projetado para ser eficiente em termos de largura de banda, consumo de energia e recursos computacionais, tornando-o ideal para dispositivos com recursos limitados.
+
+O MQTT opera em um modelo de publicação/assinatura, onde os dispositivos se comunicam por meio de um intermediário conhecido como broker. Os dispositivos podem publicar mensagens em tópicos específicos e outros dispositivos podem se inscrever nesses tópicos para receber as mensagens. Isso permite uma comunicação assíncrona e distribuída entre vários dispositivos.
+
+Uma das principais características do MQTT é sua capacidade de lidar com redes instáveis, onde a conectividade pode ser intermitente. Ele suporta três níveis de QoS (Quality of Service) para garantir a entrega das mensagens, de acordo com os requisitos de cada aplicativo.
+
+O MQTT é amplamente adotado em soluções de IoT, onde a eficiência e a escalabilidade são essenciais. Ele é utilizado em uma variedade de aplicações, incluindo monitoramento remoto, automação residencial, agricultura inteligente e cidades inteligentes.
+
+Existem várias bibliotecas MQTT disponíveis, como o Paho, que simplificam a implementação do protocolo em diferentes plataformas e linguagens de programação.
+
+<img src="/images/abstractionMQTT.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
+
+O protocolo funciona basicamente publicando e assinando mensagens. As mensagens são publicadas em tópicos localizados no servidor Broker que redireciona as mensagens recebidas em cada tópico por quem assinou os respectivos tópicos. Quem não assina o tópico não recebe as mensagens daquele tópico. Cada cliente ou dispositivo conectado ao Broker pode publicar, assinar ou ambos.
+
+# Comunicação MQTT entre Orange Pi e nodeMCU via MQTT
 
 <div>
 	<img src="/images/sbcnodemqtt.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
@@ -674,7 +690,7 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 </tbody>
 </table>
 
-# Diagrama de Comunicação
+# Diagramas de Comunicação do Projeto
 
 ## Comunicação via UART
 
@@ -682,15 +698,6 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 	<img src="/images/diagramaComunicação.jpg" alt="img" align="center" style="height: 40%; width: 40%;">
 </p>
 Este diagrama visa mostrar como se dá o protocolo de comunicação via UART entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
-
-## Comunicação via MQTT
-
-<p>
-	<img src="/images/DiagramaComunicação (4).jpg" alt="img" align="center" style="height: 40%; width: 40%;">
-</p>
-Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando também a IHC.
-
-## Exemplo de Funcionamento
 
 <p> Um exemplo é acender o LED embutido da nodeMCU. O SBC envia de forma serial ou publica no tópico específico da node o comando 00100101 e a nodeMCU ativa o LED e responde 00000001 para informar que o LED foi ativado.</p>
 
@@ -712,21 +719,27 @@ Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando
 
 <p>O SBC (Orange Pi) por sua vez, deve receber cada um destes envios (respostas) e converte-los para o binário correspondente integral. De posse deste valor o SBC deve fazer outra conversão para valor final em decimal.</p>
 
-# Protocolo MQTT
+## Comunicação via MQTT
 
-MQTT (Message Queuing Telemetry Transport) é um protocolo de comunicação leve e de mensagens assíncronas amplamente utilizado em aplicações de Internet das Coisas (IoT) e sistemas de mensagens em tempo real. Ele foi projetado para ser eficiente em termos de largura de banda, consumo de energia e recursos computacionais, tornando-o ideal para dispositivos com recursos limitados.
+<p>
+	<img src="/images/DiagramaComunicação (4).jpg" alt="img" align="center" style="height: 40%; width: 40%;">
+</p>
+Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando também a Interface Homem Máquina - IHM.
 
-O MQTT opera em um modelo de publicação/assinatura, onde os dispositivos se comunicam por meio de um intermediário conhecido como broker. Os dispositivos podem publicar mensagens em tópicos específicos e outros dispositivos podem se inscrever nesses tópicos para receber as mensagens. Isso permite uma comunicação assíncrona e distribuída entre vários dispositivos.
+Clientes e tópicos
+SBC
+ 
+publica em: "PROTOCOLCODEST", "an4log", "d1g", "d2g", "GRAPHT" (para enviar comandos e para enviar valores da conexão serial para o gráfico)
+assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (para sincronizar com LCD e saber se node responde)
 
-Uma das principais características do MQTT é sua capacidade de lidar com redes instáveis, onde a conectividade pode ser intermitente. Ele suporta três níveis de QoS (Quality of Service) para garantir a entrega das mensagens, de acordo com os requisitos de cada aplicativo.
+nodeMCU (via MQTT)
 
-O MQTT é amplamente adotado em soluções de IoT, onde a eficiência e a escalabilidade são essenciais. Ele é utilizado em uma variedade de aplicações, incluindo monitoramento remoto, automação residencial, agricultura inteligente e cidades inteligentes.
+todas Assinam o mesmo tópico "PROTOCOLCODEST" (recebe comandos)
+todas Publicam nos seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (respondem a comandos e enviam dados)
 
-Existem várias bibliotecas MQTT disponíveis, como o Paho, que simplificam a implementação do protocolo em diferentes plataformas e linguagens de programação.
+IHM
 
-<img src="/images/abstractionMQTT.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
-
-O protocolo funciona basicamente publicando e assinando mensagens. As mensagens são publicadas em tópicos localizados no servidor Broker que redireciona as mensagens recebidas em cada tópico por quem assinou os respectivos tópicos. Quem não assina o tópico não recebe as mensagens daquele tópico. Cada cliente ou dispositivo conectado ao Broker pode publicar, assinar ou ambos.
+assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" (recebe dados e comando para limpar o gráfico)
 
 # Interface
 
