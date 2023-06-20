@@ -35,11 +35,11 @@ Utilizamos o Sublime Text (https://www.sublimetext.com/), e o TextEditor (https:
 
 ## Orange Pi
 
-A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www.nano-editor.org/) acessado diretamente via terminal de comando da Orange Pi. Para compilar e executar usamos os comandos abaixo. O arquivo fonte é o 'p.c' e o executável apenas 'p'.
+A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www.nano-editor.org/) acessado diretamente via terminal de comando da Orange Pi. Para compilar e executar usamos os comandos abaixo. O arquivo fonte é o 'SBC.c' e o executável apenas 'SBC'.
 
-    gcc p.c -o p -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lpaho-mqtt3c
-    chmod +x p
-    sudo ./p
+    gcc SBC.c -o SBC -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lpaho-mqtt3c
+    chmod +x SBC
+    sudo ./SBC
 
 Na primeira linha o comando faz compilação do código fonte se não for encontrado nenhum erro. Na segunda linha o comando altera as permissões do arquivo no Sistema Operacional. Na terceira linha o comando faz execução do programa usando permissões do super usuário. Estas permissões são necessárias para acessar pinos GPIO. Os códigos do projeto para Orange Pi usam Linguagem C.
 
