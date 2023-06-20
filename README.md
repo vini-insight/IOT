@@ -645,16 +645,21 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 
 # Diagrama de Comunicação
 
+## Comunicação via UART
+
 <p>
 	<img src="/images/diagramaComunicação.jpg" alt="img" align="left" style="height: 40%; width: 40%;">
 	Este diagrama visa mostrar como se dá o protocolo de comunicação via UART entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
 </p>
 
-<p> </p>
+## Comunicação via MQTT
+
 <p>
 	<img src="/images/DiagramaComunicação (4).jpg" alt="img" align="left" style="height: 40%; width: 40%;">
 	Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando também a IHC.
 </p>
+
+## Exemplo de Funcionamento
 
 <p> Um exemplo é acender o LED embutido da nodeMCU. O SBC envia de forma serial ou publica no tópico específico da node o comando 00100101 e a nodeMCU ativa o LED e responde 00000001 para informar que o LED foi ativado.</p>
 
