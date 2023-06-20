@@ -14,7 +14,7 @@ Nos foi sugerido continuar o desenvolvimento do problema anterior, mas se comuni
 
 Neste projeto existem vários ambientes de desenvolvimento e execução. Parte na Orange Pi e parte no módulo nodeMCU. Do lado da Orange Pi foi necessário fazer acesso remoto via protoclo SSH, e, do lado da nodeMCU os códigos eram carregados por Wi-Fi usando o módulo ESP8266 integrado a nodeMCU. A edição dos códigos foi feita usando editores de texto nativos nos computadores do laboratório, ou IDEs que foram instaladas, ou cujo acesso está disponível online (via navegador de intenet).
 
-Nós utilizamos o broker mqtt disponível no laboratório para realizar as comunicações.
+Nós utilizamos o Broker MQTT disponível no laboratório para realizar as comunicações via protocolo MQTT. Um servidor local, sem acesso a internet.
 
 ## Wiring Pi
 
