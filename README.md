@@ -147,6 +147,10 @@ O MQTT é amplamente adotado em soluções de IoT, onde a eficiência e a escala
 
 Existem várias bibliotecas MQTT disponíveis, como o Paho, que simplificam a implementação do protocolo em diferentes plataformas e linguagens de programação.
 
+<img src="/images/abstractionMQTT.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
+
+O protocolo funciona basicamente publicando e assinando mensagens. As mensagens são publicadas em tópicos localizados no servidor Broker que redireciona as mensagens recebidas em cada tópico por quem assinou os respectivos tópicos. Quem não assina o tópico não recebe as mensagens daquele tópico. Cada cliente ou dispositivo conectado ao Broker pode publicar, assinar ou ambos.
+
 # Funcionamento do Sistema de Sensoriamento
 
 O usuário pode ligar e desligar o sistema a qualquer momento movimentando a quarta chave de um interruptor liga e desliga. Quando desligado nada é exibido no display de LCD. Quando ligado as opções de um Menu são exibidas. O usuário pode navegar para frente e para trás entre as opções que aparecem na segunda linha do display LCD usando os botões do protótipo. Tembém existe um botão para a confirmar escolhas, que é o mesmo para retornar ao menu depois de exibidas as respostas no display LCD. Para sair de qualquer mensagem ou resposta no LCD, basta pressionar (nos casos de leitura individual) ou manter pressionado (nos casos de monitoramento) o botão de OK.
