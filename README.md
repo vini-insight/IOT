@@ -648,7 +648,7 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 ## Comunicação via UART
 
 <p>
-	<img src="/images/diagramaComunicação.jpg" alt="img" align="left" style="height: 40%; width: 40%;">
+	<img src="/images/diagramaComunicação.jpg" alt="img" align="center" style="height: 40%; width: 40%;">
 </p>
 Este diagrama visa mostrar como se dá o protocolo de comunicação via UART entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
 
