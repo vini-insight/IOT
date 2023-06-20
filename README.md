@@ -678,7 +678,7 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 # Interface
 
 <p>
-	<img src="/images/interface.jpg" alt="img" align="left" style="height: 40%; width: 40%;">
+	<img src="/images/interface.jpeg" alt="img" align="left" style="height: 40%; width: 40%;">
 	
 A interface para monitoramento dos sensores foi desenvolvida em Python e é executada em um desktop.
 
@@ -750,9 +750,11 @@ Neste item simulamos via código como se existissem mais de uma nodeMCU concetad
 # Vídeos Demonstrativos
 
 https://github.com/vini-insight/IOinterface/assets/7541966/53370b7c-20af-48bf-aba9-2e53074c07bf
+
 <p>Funcionamento UART </p>
 
 https://github.com/vini-insight/IOT/assets/58979991/d9c4b006-11b0-4090-b02c-fd1e80b0dcf8
+
 <p>Funcionamento MQTT </p>
 
 # Conclusão
