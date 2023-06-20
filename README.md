@@ -695,27 +695,25 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 ## Comunicação via UART
 
 <p>
-	<img src="/images/diagramaComunicação.jpg" alt="img" align="center" style="height: 40%; width: 40%;">
+	<img src="/images/diagramaComunicação.jpg" alt="img" align="left" style="height: 40%; width: 40%;">
+	Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
 </p>
-Este diagrama visa mostrar como se dá o protocolo de comunicação via UART entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
 
-<p> Um exemplo é acender o LED embutido da nodeMCU. O SBC envia de forma serial ou publica no tópico específico da node o comando 00100101 e a nodeMCU ativa o LED e responde 00000001 para informar que o LED foi ativado.</p>
+<p> Um exemplo é o comando para acender o LED embutido da nodeMCU. O SBC envia de forma serial 00100101 e a nodeMCU ativa o LED e responde 00000001 para informar que o LED foi ativado.</p>
 
 <p> Aqui vale uma atenção para a resposta da leitura do sensor Analógico. A resposta do Conversor Analógico Digital (ADC) pode vairar com valores na faixa de 0 até 1023. Em binário o número 1023 é representado com 10 bits (1111111111). Mas a comunicação serial emvia no máximo 8 bits, logo a representação estaria com valor errado, pois '11111111' é 255 em decimal e se enviar depois apenas '11' é 3 em decimal. Existem algumas formas de contornar esse problema. A forma adotada foi utilizar a função:</p>
 
-    Serial.print(valor, BIN);
-
+	Serial.print(valor, BIN);
+	
 <p>O segundo parâmetro que é opcional, especifíca a base (formato) a ser usado. Valores permitidos são BIN(binário, ou base 2), OCT(octal, ou base 8), DEC(decimal, ou base 10), HEX(hexadecimal, ou base 16). Para números de ponto flutuante, esse parâmetro especifica o número de casas decimais a serem impressas.</p>
 
 <p>Por exemplo: Serial.print(206, BIN) imprime "11001110" que é a representação binária de 206. No entanto cada um destes bits é enviado, um de cada vez, ou seja, para cada bit 1, é enviado a representação binária de oito bits que é '00000001', e para cada bit 0 é enviado a sua represntação binária de oito bits que é '00000000'. Isso quer dizer que se o valor tiver X bits, serão feitos X envios de 8 bits que representam cada bit enviado. </p>
 
 <p>Então no caso de valor máximo do ADC que é 1023, sua representação é '1111111111' logo, serão feitos 10 envios com a representação binária de oito bits para cada bit enviado. o mesmo acontece se o valor for '1111' que é 15 em decimal, serão feitos quatro envios com a representação binária de 8 bits para cada bit. Abaixo outros exemplos:</p>
 
-    se o valor for 42 (101010) serão feitos 6 envios de oito bits cada.
-    se o valor for 13 (01101) serão feitos 5 envios de oito bits cada.
-    se o valor for 55 (0110111) serão feitos 7 envios de oito bits cada.
-
-<p>Para as nodes conectadas via MQTT, não é necessário realizar tal procedimento, podendo mandar a string completa do comando.</p>
+	se o valor for 42 (101010) serão feitos 6 envios de oito bits cada. 
+	se o valor for 13 (01101) serão feitos 5 envios de oito bits cada.
+	se o valor for 55 (0110111) serão feitos 7 envios de oito bits cada.
 
 <p>O SBC (Orange Pi) por sua vez, deve receber cada um destes envios (respostas) e converte-los para o binário correspondente integral. De posse deste valor o SBC deve fazer outra conversão para valor final em decimal.</p>
 
