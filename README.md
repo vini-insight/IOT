@@ -776,7 +776,7 @@ Este cliente assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" receb
 
 # Resultados
 
-Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe foi de ver o projeto funcionar o mais breve possível. Foi implementado por partes e quando cada uma estava funcionando individualmente, fizemos a junção das partes e testamos. Com isso consguimos fazer coisas a mais como inserir uma chave para ligar e desligar o sistema, alertar quando o valor de leitura ADC do sensor analógico extrapola o valor máximo, o que na prática é um erro de leitura, e também exibir o valor da tensão medida em Volts a partir da conversão da leitura do valor ADC. Com isso o único requisto que não funciona bem é o de BROADCAST. Conseguimos enviar a mensagem para todas as unidades ao mesmo tempo, no entanto, a resposta de que a mensagem de BROADCAST foi recebida, em algums momentos não é a esperada. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
+Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe foi de ver o projeto funcionar o mais breve possível. Foi implementado por partes e quando cada uma estava funcionando individualmente, fizemos a junção das partes e testamos. Com isso consguimos fazer coisas a mais como inserir uma chave para ligar e desligar o sistema, alertar quando o valor de leitura ADC do sensor analógico extrapola o valor máximo, o que na prática é um erro de leitura, e também exibir o valor da tensão medida em Volts a partir da conversão da leitura do valor ADC.
 
 ## Requisitos Atendidos
 
@@ -809,11 +809,12 @@ Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe 
 		<li>quando sensor analógico retorna valor maior que 1023 (erro de leitura do sensor)</li>
 	</ul>
 <li>adicionado chave liga / desliga no projeto</li>
+<li>Mensagem de Broadcast</li>
 </ul>
 
 ## Requisitos Não Atendidos
 
-A mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esperada, de que a mensagem foi recebida, não é a resposta esperada. Neste requisito temos um comportamento inconsistente. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
+Makefile
 
 # Testes
 
@@ -833,7 +834,7 @@ Executamos os mesmos testes feitos para cada sensor individualmente.
 
 ## Enviar mensagem para todos (BROADCAST)
 
-Neste item simulamos via código como se existissem mais de uma nodeMCU concetada, no entanto algumas vezes obtivemos respostas incoerentes. Este foi o único teste que falhou.
+Enviamos mensagem para todas (UART e MQTT) e aguardamos a resposta de cada uma. Fizemos uma contagem das que responderam (estão conectadas) e exibimos o valor total. 
 
 # Vídeos Demonstrativos
 
