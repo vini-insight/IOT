@@ -725,22 +725,21 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 </p>
 Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando também a Interface Homem Máquina - IHM.
 
-Clientes e tópicos
-SBC
+# Clientes e Tópicos
+
+# Clinete C na Orange Pi (SBC)
  
-publica em: "PROTOCOLCODEST", "an4log", "d1g", "d2g", "GRAPHT" (para enviar comandos e para enviar valores da conexão serial para o gráfico)
-assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (para sincronizar com LCD e saber se node responde)
+Publica nos seguintes tópicos: "PROTOCOLCODEST", "an4log", "d1g", "d2g", "GRAPHT" para enviar comandos e para enviar valores da conexão serial e controlar plotagem do gráfico. Assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (para sincronizar valores mensurados com LCD e saber o status de funcionamento da nodeMCU ( se node responde).
 
-nodeMCU (via MQTT)
+# Clinete C++ no Mmódulo nodeMCU
 
-todas Assinam o mesmo tópico "PROTOCOLCODEST" (recebe comandos)
-todas Publicam nos seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (respondem a comandos e enviam dados)
+Todos os clientes das unidades de sensoriamento remotas assinam o mesmo tópico "PROTOCOLCODEST" onde recebem os comandos. Todas Publicam nos seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" onde respondem a comandos e enviam valores mensurados.
 
-IHM
+# Clinete Python na IHM
 
-assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" (recebe dados e comando para limpar o gráfico)
+Este cliente assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" recebe os valores mensurados e o comando para limpar o gráfico.
 
-# Interface
+# Interface Home Máquina (IHM)
 
 <p>
 	<img src="/images/interface.jpeg" alt="img" align="center" style="height: 40%; width: 40%;">
