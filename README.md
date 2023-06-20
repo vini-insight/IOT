@@ -744,16 +744,9 @@ Este cliente assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" receb
 
 # Interface Home Máquina (IHM)
 
-<p>
-	<img src="/images/interface.jpeg" alt="img" align="center" style="height: 40%; width: 40%;">
-</p>
 
-<p>
-A interface para monitoramento dos sensores foi desenvolvida em Python e é executada em um desktop.
 
-Essencialmente, ela atua como um assinante, recebendo os dados lidos pelas NodeMCU. Com base nesses dados, a interface gera gráficos para cada sensor, exibindo as últimas dez medições de cada um.
-
-</p>
+<p> A interface para monitoramento dos sensores foi desenvolvida em Python e é executada em um desktop. Essencialmente, ela atua como um assinante, recebendo os dados lidos pelas NodeMCU. Com base nesses dados, a interface gera gráficos para cada sensor, exibindo as últimas dez medições de cada um. </p>
 
 # Resultados
 
