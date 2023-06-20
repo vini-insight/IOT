@@ -678,7 +678,7 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 # Interface
 
 <p>
-	<img src="/images/interface.jpeg" alt="img" align="center" style="height: 40%; width: 40%;">
+	<img src="/images/interface.jpeg" alt="img" align="center" >
 </p>
 
 <p>
