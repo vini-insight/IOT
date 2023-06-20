@@ -727,16 +727,19 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando também a Interface Homem Máquina - IHM.
 
 # Clientes e Tópicos
+No protocolo MQTT, qualquer cliente pode publicar, ou assinar em um tópico. Logo, se em projetos diferentes forem criados tópicos com nomes iguais, usando o mesmo Broker, as medições de projetos diferentes vão para o mesmo tópico.
+
+Por isso os tópicos foram escritos propositadamente de forma "estranha" para ficarem diferentes dos tópicos dos projetos dos nossos colegas que também estavam fazendo testes no mesmo horário. Isso evitava pegar informações que não são de nosso interesse ou que venham em momento inoportuno.
 
 <img src="/images/modelPROTOTIPO.jpg" alt="img" align="center" >
 
 ## Clinete C na Orange Pi (SBC)
  
-Publica nos seguintes tópicos: "PROTOCOLCODEST", "an4log", "d1g", "d2g", "GRAPHT" para enviar comandos e para enviar valores da conexão serial e controlar plotagem do gráfico. Assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (para sincronizar valores mensurados com LCD e saber o status de funcionamento da nodeMCU ( se node responde).
+Publica nos seguintes tópicos: "PROTOCOLCODEST", "an4log", "d1g", "d2g" e "GRAPHT" para enviar comandos e para enviar valores da conexão serial e controlar plotagem do gráfico. Assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d", "ALLBROADCASTT" (para sincronizar valores mensurados com LCD, saber o status de funcionamento da nodeMCU ( se node responde) e receber mensagens de Broadcast.
 
 ## Clinete C++ no Módulo nodeMCU
 
-Todos os clientes das unidades de sensoriamento remotas assinam o mesmo tópico "PROTOCOLCODEST" onde recebem os comandos. Todas Publicam nos seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" onde respondem a comandos e enviam valores mensurados.
+Todos os clientes das unidades de sensoriamento remotas assinam o mesmo tópico "PROTOCOLCODEST" onde recebem os comandos. Todas Publicam nos seguintes tópicos: "OKSTATUSMQTT", "ALLBROADCASTT", "an4log", "d1g", "d2g", "l3d" onde respondem a comandos e enviam valores mensurados.
 
 ## Clinete Python na IHM
 
