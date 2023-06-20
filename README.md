@@ -857,6 +857,30 @@ https://github.com/vini-insight/IOT/assets/58979991/d9c4b006-11b0-4090-b02c-fd1e
 
 # Referências
 
+https://mqtt.org/
+
+https://www.gta.ufrj.br/ensino/eel878/redes1-2019-1/vf/mqtt/
+
+https://www.automacaoindustrial.info/mqtt/
+
+https://curtocircuito.com.br/blog/introducao-ao-mqtt
+
+https://www.robocore.net/tutoriais/iot-devkit-envio-dados-mqtt
+
+https://aws.amazon.com/pt/what-is/mqtt/
+
+https://www.eclipse.org/paho/index.php?page=downloads.php
+
+https://www.oracle.com/br/internet-of-things/what-is-iot/#:~:text=A%20Internet%20das%20Coisas%20(IoT)%20descreve%20a%20rede%20de%20objetos,comuns%20a%20ferramentas%20industriais%20sofisticadas.
+
+https://www.redhat.com/pt-br/topics/internet-of-things/what-is-iot
+
+https://github.com/eclipse/paho.mqtt.c
+
+https://en.wikipedia.org/wiki/Internet_of_things
+
+https://blog.rocketseat.com.br/como-fazer-um-bom-readme/
+
 http://wiringpi.com/
 
 http://wiringpi.com/pins/
