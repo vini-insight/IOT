@@ -745,6 +745,33 @@ Este cliente assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" receb
 # Interface Home Máquina (IHM)
 
 
+<table>
+	<tr>
+		<th>Monitorando sensores via UART</th>
+		<th>Monitorando sensores via MQTT</th>
+  	</tr>
+	<tr>
+		<td><img src="/images/GRAPH.png" alt="img" > </td>
+		<td><img src="/images/GRAPHSERIAO.png" alt="img" > </td>
+	</tr>
+</table>
+
+
+<!-- <br> </br>
+<p> testando </p>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br> -->
+
+
 
 <p> A interface para monitoramento dos sensores foi desenvolvida em Python e é executada em um desktop. Essencialmente, ela atua como um assinante, recebendo os dados lidos pelas NodeMCU. Com base nesses dados, a interface gera gráficos para cada sensor, exibindo as últimas dez medições de cada um. </p>
 
