@@ -543,6 +543,20 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 <p>Existe um fio conectando o pino PA13 da Orange Pi com o pino GPIO3 da nodeMCU, e, outro fio conectando o pino PA14 da Orange Pi com o pino GPIO1 da nodeMCU. Este esquema faz a comunicação serial via inteface UART onde todos as requisições e comandos são enviados pela Orange Pi. A nodeMCU recebe os comandos e responde as requisições.</p>
 
+# Comunicação wireless entre Orange Pi e nodeMCU via MQTT
+
+<div>
+	<img src="/images/sbcnodemqtt.jpg" alt="img" >
+</div>
+
+<p>Na comunicação via MQTT entre a Orange Pi e a NodeMCU, ambos os dispositivos atuam como publicadores e assinantes. Eles se comunicam sem fio por meio de um broker MQTT, que facilita a troca de mensagens.
+
+A Orange Pi pode publicar mensagens em tópicos específicos no broker MQTT, enquanto a NodeMCU pode se inscrever nesses tópicos para receber as mensagens enviadas pela Orange Pi. Essa comunicação bidirecional permite que ambos os dispositivos enviem comandos, solicitações e troquem informações entre si.
+
+Dessa forma, a Orange Pi e a NodeMCU podem interagir e coordenar suas ações por meio do protocolo MQTT, sem a necessidade de fios físicos conectando os dispositivos. Eles podem estar conectados à mesma rede sem fio, permitindo a comunicação em tempo real e o controle remoto dos dispositivos conectados.
+
+Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais complexos, onde a Orange Pi e a NodeMCU podem trocar dados, responder a comandos e coordenar suas operações de acordo com as necessidades do projeto. Através do broker MQTT, eles podem se comunicar de maneira eficiente e confiável, facilitando a implementação de soluções IoT versáteis e escaláveis.</p>
+
 # Protocolo de Comunicação feito para o Sensoriameto Remoto
 
 <p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente. Tanto os comandos quanto as respostas são compostos por palavras de 8 bits. Existem códigos para identificar cada unidade de sensoriamento (nodeMCU) e também para cada Sensor, além de códigos para identificar ações específicas, como respostas sobre status de funcionamento da unidade de sensoriamento ou de enviar mensagem para todas as unidades ou fazer monitoramento. Os códigos variam de '0b00000000' até '0b00111111'. Porém não usamos todos os valores nesta faixa. Cada código se incia com '0b' pois esta é uma representação em binário usando linguagem C.</p>
