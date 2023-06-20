@@ -727,15 +727,15 @@ Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando
 
 # Clientes e Tópicos
 
-# Clinete C na Orange Pi (SBC)
+## Clinete C na Orange Pi (SBC)
  
 Publica nos seguintes tópicos: "PROTOCOLCODEST", "an4log", "d1g", "d2g", "GRAPHT" para enviar comandos e para enviar valores da conexão serial e controlar plotagem do gráfico. Assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (para sincronizar valores mensurados com LCD e saber o status de funcionamento da nodeMCU ( se node responde).
 
-# Clinete C++ no Mmódulo nodeMCU
+## Clinete C++ no Mmódulo nodeMCU
 
 Todos os clientes das unidades de sensoriamento remotas assinam o mesmo tópico "PROTOCOLCODEST" onde recebem os comandos. Todas Publicam nos seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" onde respondem a comandos e enviam valores mensurados.
 
-# Clinete Python na IHM
+## Clinete Python na IHM
 
 Este cliente assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" recebe os valores mensurados e o comando para limpar o gráfico.
 
