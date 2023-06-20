@@ -720,7 +720,8 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 ## Comunicação via MQTT
 
 <p>
-	<img src="/images/DiagramaComunicação (4).jpg" alt="img" align="center" style="height: 40%; width: 40%;">
+<!-- 	<img src="/images/DiagramaComunicação (4).jpg" alt="img" align="center" style="height: 40%; width: 40%;"> -->
+	<img src="/images/DiagramaComunicação (4).jpg" alt="img" align="left" style="height: 125%; width: 125%;">
 </p>
 Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando também a Interface Homem Máquina - IHM.
 
