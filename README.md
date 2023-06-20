@@ -2,7 +2,15 @@
 
 # Contexto
 
-Nos foi sugerido continuar o desenvolvimento do problema anterior, mas se comunicando tanto de forma serial, quanto via MQTT com o Microcontrolador (nodeMCU) para gerenciar diversas unidades de sensoriamento remotas.
+A Internet das coisas (Internet of Things - IoT) descreve objetos, equipamentos, dispositivos, ou, grupos de tais 'coisas' com sensores, capacidade de processamento, software e outras tecnologias que conectam e trocam dados com outros dispositivos e sistemas pela Internet, rede local, intranet ou quaisquer outras redes de comunicação.
+
+A Internet das coisas tem sido considerada um nome impróprio porque os dispositivos não precisam estar conectados à Internet pública, eles só precisam estar conectados a uma rede] e ser endereçáveis individualmente
+
+Esta áreao evoluiu devido à convergência de várias tecnologias, sistemas embarcados cada vez mais poderosos, bem como aprendizado de máquina, entre outros. Campos tradicionais de sistemas embarcados, redes de sensores sem fio, sistemas de controle, automação (incluindo automação residencial e predial), permitem de forma independente e coletiva a Internet das coisas. No mercado de consumo, a tecnologia IoT é mais sinônimo de produtos pertencentes ao conceito de "casa inteligente", incluindo dispositivos e aparelhos (como luminárias, termostatos, sistemas de segurança doméstica, câmeras e outros eletrodomésticos) que suportam um ou ecossistemas mais comuns e podem ser controlados por meio de dispositivos associados a esse ecossistema, como smartphones e alto-falantes inteligentes.
+
+A IoT também é usada em sistemas de saúde e já existem uma série de preocupações sobre os riscos no crescimento dessas tecnologias. Também devemos nos preocupar com aprivacidade e segurança.
+
+Com base nestes cenário, nos foi sugerido continuar o desenvolvimento do projeto anterior (que pode ser acessado clicando (<a href="https://github.com/vini-insight/IOinterface">AQUI</a>), mas se comunicando tanto de forma serial usando protocolo UART, quanto via Wi-Fi usando protocolo MQTT, com o Microcontrolador (nodeMCU) para gerenciar diversas unidades de sensoriamento remotas.
 
 <p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SBC</a> e os valores das leituras serão mostrados tanto no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a>, quanto em uma interface Web.</p>
 
