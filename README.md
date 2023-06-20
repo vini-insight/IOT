@@ -739,7 +739,10 @@ Neste item simulamos via código como se existissem mais de uma nodeMCU concetad
 # Vídeo Demonstrativo
 
 https://github.com/vini-insight/IOinterface/assets/7541966/53370b7c-20af-48bf-aba9-2e53074c07bf
+<p>Funcionamento UART </p>
 
+Uploading demonstracao (1)-00.00.26.118-00.02.00.865.mp4…
+<p>Funcionamento MQTT </p>
 <!-- <p>inserir viídeo aqui.</p> -->
 
 # Conclusão
