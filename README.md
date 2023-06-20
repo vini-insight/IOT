@@ -155,11 +155,29 @@ O protocolo funciona basicamente publicando e assinando mensagens. As mensagens 
 
 O usuário pode ligar e desligar o sistema a qualquer momento movimentando a quarta chave de um interruptor liga e desliga. Quando desligado nada é exibido no display de LCD. Quando ligado as opções de um Menu são exibidas. O usuário pode navegar para frente e para trás entre as opções que aparecem na segunda linha do display LCD usando os botões do protótipo. Tembém existe um botão para a confirmar escolhas, que é o mesmo para retornar ao menu depois de exibidas as respostas no display LCD. Para sair de qualquer mensagem ou resposta no LCD, basta pressionar (nos casos de leitura individual) ou manter pressionado (nos casos de monitoramento) o botão de OK.
 
-## Menu 1
+## Menu
+Abaixo seguem as opções do menu:
 
-Primeiro o usuário deve escolher entre enviar uma mensagem de BROADCAST ou selecionar uma unidade de sensoriamento remota. Caso escolher BROADCAST, uma mensagem será enviada ao mesmo tempo a todas as unidades de sensoriamento e cada uma deverá responder com seu código de identificação, caso ela esteja acessível. No display LCD será exibido a quantidade de unidades que responderam. Caso escolha selecionar uma unidade de sensoriamento, o usuário entrará em outro Menu onde ele deve escolher qual das 32 unidades desponívels ele quer acessar.
+	node UART
+ 	node MQTT
+  	BROADCAST
+   
+Primeiro o usuário deve escolher entre enviar uma mensagem de BROADCAST ou selecionar uma unidade de sensoriamento remota, que pode ser via protocolo UART, ou MQTT. Caso escolher BROADCAST, uma mensagem será enviada ao mesmo tempo a todas as unidades de sensoriamento e cada uma deverá responder com seu código de identificação, caso ela esteja acessível. No display LCD será exibido a quantidade de unidades que responderam. Caso escolha selecionar uma unidade de sensoriamento, o usuário entrará em outro Menu onde ele deve escolher qual das 32 unidades desponívels ele quer acessar.
 
-## Menu 2
+## Submenu
+
+Abaixo seguem as opções do submenu:
+
+	sensor analogico
+	sensor digital 1
+	sensor digital 2
+	ligar LED
+	desligar LED
+	monitorar sensor analógico
+	monitorar sensor digital 1
+	monitorar sensor digital 2
+	monitorar TODOS os sensores
+	voltar ao Menu
 
 Depois de escolhida a unidade de sensoriamento, outro Menu é apresentado com várias opções de sensores, de monitoramento, manipular o LED embutido da unidade e de voltar ao menu anterior. É necessário ressaltar que este Menu só é exibido se a unidade de sensoriamento responder que está com status 'OK'. Esta requisição é feita no momento que é confirmada a escolha da unidade. Se a unidade não respónder qual o seu status de funcionamento, as opções do Menu dedicadas aquela unidade não serão exibidas e no lugar uma mensagem de erro (TIMEOUT) será exibida no diplay.
 
