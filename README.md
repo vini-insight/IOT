@@ -744,6 +744,7 @@ Este cliente assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" receb
 
 # Interface Home Máquina (IHM)
 
+<p> A interface para monitoramento dos sensores foi desenvolvida em Python e é executada em um desktop. Essencialmente, ela atua como um assinante, recebendo os dados lidos pelas NodeMCU. Com base nesses dados, a interface gera gráficos para cada sensor, exibindo as últimas dez medições de cada um. </p>
 
 <table>
 	<tr>
@@ -756,24 +757,19 @@ Este cliente assina os seguintes tópicos: "GRAPH", "an4log", "d1g", "d2g" receb
 	</tr>
 </table>
 
+<p> Gráfico inicia exibindo valores negativos que vão se atualizando a medida que os dados vão chegando. Ao lado o print de tela de um console de monitoramento para debug de código.</p>
 
-<!-- <br> </br>
-<p> testando </p>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br>
-<br> </br> -->
+<table>
+	<tr>
+		<th>Inicialização do gráfico</th>
+		<th>Console de Monitoramento</th>
+  	</tr>
+	<tr>
+		<td><img src="/images/interface.jpeg" alt="img" > </td>
+		<td><img src="/images/detalhamentoTOPICOSconsole.png" alt="img" > </td>
+	</tr>
+</table>
 
-
-
-<p> A interface para monitoramento dos sensores foi desenvolvida em Python e é executada em um desktop. Essencialmente, ela atua como um assinante, recebendo os dados lidos pelas NodeMCU. Com base nesses dados, a interface gera gráficos para cada sensor, exibindo as últimas dez medições de cada um. </p>
 
 # Resultados
 
