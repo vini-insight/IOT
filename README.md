@@ -20,9 +20,14 @@ Nós utilizamos o Broker MQTT disponível no laboratório para realizar as comun
 
 WiringPi é uma biblioteca escrita em linguagem C para os dispositivos como Orange Pi Ou Raspberry Pi para ser familiar para as pessoas que usaram o sistema de fiação do Arduino. Pode fácilmente ser incluída em projetos que usam linguagem C. Ela gerencia e fornece acesso aos pinos GPIO, ou seja, ler e escrever dados nos pinos, além de fornecer acesso fácil a alguns periféricos populares como displays de LCD baseados nos chips Hitachi HD44780U e também as interfaces seriais de comunicação. Mais informações em http://wiringpi.com/ .
 
-## Paho C Client
+## Clientes MQTT Paho
 
-Paho é uma biblioteca de código aberto para implementação de protocolos MQTT em várias linguagens, incluindo C. Desenvolvida pela Eclipse Foundation, suporta dispositivos como Raspberry Pi e Orange Pi. O MQTT é um protocolo leve usado na IoT. Com o Paho, é possível estabelecer conexões MQTT, publicar e assinar tópicos. A biblioteca oferece recursos avançados, como autenticação e QoS. A implementação Paho MQTT C é fácil de integrar em projetos em C e existem versões para Python, Java e C++. O Paho permite criar aplicativos de IoT que se conectam a um broker MQTT e trocam dados de maneira eficiente. É amplamente usado na comunidade de desenvolvimento de IoT. Mais informações podem ser encontradas em https://github.com/eclipse/paho.mqtt.c .
+Paho é uma biblioteca de código aberto para implementação de protocolos MQTT em várias linguagens, incluindo C. Desenvolvida pela Eclipse Foundation, suporta dispositivos como Raspberry Pi e Orange Pi. O MQTT é um protocolo leve usado na IoT. Com o Paho, é possível estabelecer conexões MQTT, publicar e assinar tópicos. A biblioteca oferece recursos avançados, como autenticação e QoS. A implementação Paho MQTT C é fácil de integrar em projetos em C e existem versões para Python, Java e C++. O Paho permite criar aplicativos de IoT que se conectam a um broker MQTT e trocam dados de maneira eficiente. É amplamente usado na comunidade de desenvolvimento de IoT. Mais informações podem ser encontradas em https://github.com/eclipse/paho.mqtt.c . OU, https://www.eclipse.org/paho/index.php?page=downloads.php.
+
+	Cliente Python: https://www.eclipse.org/paho/index.php?page=clients/python/index.php
+	Cliente C: https://www.eclipse.org/paho/index.php?page=clients/c/index.php
+ 	Cliente C++: https://www.eclipse.org/paho/index.php?page=clients/cpp/index.php
+Foi necessário também adicionar algumas bibliotecas que não estavam instaladas no Arduíno IDE dos computadores do laboratório. Elas estão na seguinte pasta deste projeto: https://github.com/vini-insight/IOT/tree/main/libsArduinoIDE . Basta fazer download e instalar manualmente no Arduíno IDE.
 
 ## Computadores do Laboratório
 
