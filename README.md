@@ -675,6 +675,12 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 
 <p>O SBC (Orange Pi) por sua vez, deve receber cada um destes envios (respostas) e converte-los para o binário correspondente integral. De posse deste valor o SBC deve fazer outra conversão para valor final em decimal.</p>
 
+# Interface
+
+A interface para monitoramento dos sensores foi desenvolvida em Python e é executada em um desktop.
+
+Essencialmente, ela atua como um assinante, recebendo os dados lidos pelas NodeMCU. Com base nesses dados, a interface gera gráficos para cada sensor, exibindo as últimas dez medições de cada um.
+
 # Resultados
 
 Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe foi de ver o projeto funcionar o mais breve possível. Foi implementado por partes e quando cada uma estava funcionando individualmente, fizemos a junção das partes e testamos. Com isso consguimos fazer coisas a mais como inserir uma chave para ligar e desligar o sistema, alertar quando o valor de leitura ADC do sensor analógico extrapola o valor máximo, o que na prática é um erro de leitura, e também exibir o valor da tensão medida em Volts a partir da conversão da leitura do valor ADC. Com isso o único requisto que não funciona bem é o de BROADCAST. Conseguimos enviar a mensagem para todas as unidades ao mesmo tempo, no entanto, a resposta de que a mensagem de BROADCAST foi recebida, em algums momentos não é a esperada. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
@@ -736,12 +742,14 @@ Executamos os mesmos testes feitos para cada sensor individualmente.
 
 Neste item simulamos via código como se existissem mais de uma nodeMCU concetada, no entanto algumas vezes obtivemos respostas incoerentes. Este foi o único teste que falhou.
 
-# Vídeo Demonstrativo
+# Vídeos Demonstrativos
 
 https://github.com/vini-insight/IOinterface/assets/7541966/53370b7c-20af-48bf-aba9-2e53074c07bf
+
 <p>Funcionamento UART </p>
 
 Uploading demonstracao (1)-00.00.26.118-00.02.00.865.mp4…
+
 <p>Funcionamento MQTT </p>
 <!-- <p>inserir viídeo aqui.</p> -->
 
