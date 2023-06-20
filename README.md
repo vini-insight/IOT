@@ -4,7 +4,7 @@
 
 Nos foi sugerido continuar o desenvolvimento do problema anterior, mas se comunicando tanto de forma serial, quanto via MQTT com o Microcontrolador (nodeMCU) para gerenciar diversas unidades de sensoriamento remotas.
 
-<p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SBC</a> e os valores das leituras serão mostrados tanto no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2, quanto em uma interface Web.</a></p>
+<p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SBC</a> e os valores das leituras serão mostrados tanto no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a>, quanto em uma interface Web.</p>
 
 <p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma <a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">NodeMCU</a> para a confecção das unidades de sensoriamento.</p>
 
