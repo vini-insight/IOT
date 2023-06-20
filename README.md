@@ -237,10 +237,20 @@ Algumas mensagems de erro podem ser exibidas no LCD como por exemplo se algum se
 
 # Visão Geral do Protótipo
 
+## Protoboard 1 (via UART)
+
 <div>
 	<img src="/images/visãoGeralTimer.jpg" alt="img" >
 	<p> Está montagem está 100% funcional. Basta ligar na tomada e aguardar as placas inicializarem e se conectarem a rede para podermos acessar de forma remota e usar.</p>
 </div>
+
+## Protoboard 2 (via MQTT)
+
+<div>
+	<img src="/images/nodesMQTT.jpg" alt="img" style="height: 150%; width: 150%;" align="left">
+	<p> Está montagem está 100% funcional. Basta ligar na fonte de alimentação com a tensão regulada em 5 Volts e aguardar as placas inicializarem e se conectarem a rede para podermos acessar de forma remota e usar.</p>
+</div>
+
 
 # Arquitetura ARM
 
