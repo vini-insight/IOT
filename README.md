@@ -125,6 +125,16 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 
 <p>Os códigos do projeto para Orange Pi usam Linguagem C. Os códigos do projeto para nodeMCU usam Linguagem C++. Ao lado um exemplo de código em C++</p>
 
+# Linguagem Python
+
+Python é uma linguagem de programação de alto nível e de uso geral. Seu design enfatiza a legibilidade do código com o uso de recuo significativo por meio da "regra de impedimento". Python é tipado dinamicamente. Ele oferece suporte a vários paradigmas de programação, incluindo programação estruturada, orientada a objetos e funcional. Tem várias Bibliotecas padrão além de permitir a instalação de outras personalizadas.
+
+Enquanto nas outras linguagens para imprimir uma mensagem na gela eram necessários digitar pelo menos 4 linhas de código, aqui precisamos digitar apenas uma. tão simples quanto isso:
+	
+ 	print("Hello, World!")
+  
+Neste projeto utilizamos essa linguagem para exibir um gráfico com o histórico de valores mensurados nas unidades de sensoriamento. Uma Interface Homeme Máquina (IHM).
+
 # Protocolo MQTT
 
 MQTT (Message Queuing Telemetry Transport) é um protocolo de comunicação leve e de mensagens assíncronas amplamente utilizado em aplicações de Internet das Coisas (IoT) e sistemas de mensagens em tempo real. Ele foi projetado para ser eficiente em termos de largura de banda, consumo de energia e recursos computacionais, tornando-o ideal para dispositivos com recursos limitados.
