@@ -728,6 +728,8 @@ Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando
 
 # Clientes e Tópicos
 
+<img src="/images/modelPROTOTIPO.jpg" alt="img" align="center" >
+
 ## Clinete C na Orange Pi (SBC)
  
 Publica nos seguintes tópicos: "PROTOCOLCODEST", "an4log", "d1g", "d2g", "GRAPHT" para enviar comandos e para enviar valores da conexão serial e controlar plotagem do gráfico. Assina os seguintes tópicos: "OKSTATUSMQTT", "an4log", "d1g", "d2g", "l3d" (para sincronizar valores mensurados com LCD e saber o status de funcionamento da nodeMCU ( se node responde).
