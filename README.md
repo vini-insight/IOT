@@ -546,7 +546,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 # Comunicação wireless entre Orange Pi e nodeMCU via MQTT
 
 <div>
-	<img src="/images/sbcnodemqtt.jpg" alt="img" >
+	<img src="/images/sbcnodemqtt.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
 </div>
 
 <p>Na comunicação via MQTT entre a Orange Pi e a NodeMCU, ambos os dispositivos atuam como publicadores e assinantes. Eles se comunicam sem fio por meio de um broker MQTT, que facilita a troca de mensagens.
@@ -647,10 +647,15 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
 
 <p>
 	<img src="/images/diagramaComunicação.jpg" alt="img" align="left" style="height: 40%; width: 40%;">
-	Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
+	Este diagrama visa mostrar como se dá o protocolo de comunicação via UART entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
 </p>
 
-<p> Um exemplo é o comando para acender o LED embutido da nodeMCU. O SBC envia de forma serial 00100101 e a nodeMCU ativa o LED e responde 00000001 para informar que o LED foi ativado.</p>
+<p>
+	<img src="/images/DiagramaComunicação (4).jpg" alt="img" align="left" style="height: 40%; width: 40%;">
+	Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando também a IHC.
+</p>
+
+<p> Um exemplo é acender o LED embutido da nodeMCU. O SBC envia de forma serial ou publica no tópico específico da node o comando 00100101 e a nodeMCU ativa o LED e responde 00000001 para informar que o LED foi ativado.</p>
 
 <p> Aqui vale uma atenção para a resposta da leitura do sensor Analógico. A resposta do Conversor Analógico Digital (ADC) pode vairar com valores na faixa de 0 até 1023. Em binário o número 1023 é representado com 10 bits (1111111111). Mas a comunicação serial emvia no máximo 8 bits, logo a representação estaria com valor errado, pois '11111111' é 255 em decimal e se enviar depois apenas '11' é 3 em decimal. Existem algumas formas de contornar esse problema. A forma adotada foi utilizar a função:</p>
 
@@ -666,6 +671,8 @@ Essa abordagem flexível e bidirecional permite criar sistemas de IoT mais compl
     se o valor for 13 (01101) serão feitos 5 envios de oito bits cada.
     se o valor for 55 (0110111) serão feitos 7 envios de oito bits cada.
 
+<p>Para as nodes conectadas via MQTT, não é necessário realizar tal procedimento, podendo mandar a string completa do comando.</p>
+
 <p>O SBC (Orange Pi) por sua vez, deve receber cada um destes envios (respostas) e converte-los para o binário correspondente integral. De posse deste valor o SBC deve fazer outra conversão para valor final em decimal.</p>
 
 # Resultados
@@ -676,9 +683,12 @@ Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe 
 
 <ul>
 <li>interliga até 32 unidades de sensoriamento nodeMCU</li>
+<li>Interface IHC para observação das leituras com a exibição dos ultimos 10 valores lidos</li>
 <li>fazer requisições via comunicação serial (UART)</li>
 <li>obter respostas via comunicação serial (UART)</li>
-<li>apenas SBC inicia a comunicação E faz todas as requisições enviando comandos</li>
+<li>fazer requisições via wireless (MQTT)</li>
+<li>obter respostas via wireless (MQTT)</li>
+<li>apenas SBC inicia a comunicação e faz todas as requisições enviando comandos</li>
 <li>nodeMCU interpreta os comandos enviados pelo SBC</li>
 <li>comandos compostos por palavras de 8 bits</li>
 <li>solicitação de status da nodeMCU</li>
@@ -706,26 +716,6 @@ Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe 
 
 A mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esperada, de que a mensagem foi recebida, não é a resposta esperada. Neste requisito temos um comportamento inconsistente. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
 
-<!--
-## Requisitos Atendidos
-
-<ul>
-<li> Solução foi desenvolvida em linguagem C </li>
-<li> Contém o Script de compilação do tipo Makefile para criação do executavel </li>
-<li>Para o SBC
-<ul>
-  <li>Apenas o SBC é capaz de iniciar a comunicação </li>
-</ul>
-<li>Para a NodeMCU
-<ul>
-  <li>A leitura dos sensores tem a maior precisão possível </li>
-  <li>Os comandos são compostos por palavras de 1 byte (8 bits) </li>
-  <li>As requisições podem ser direcionadas para uma unidade ou todas </li>
-  <li>Comandos e respostas são exibidas no display LCD 16x2 </li>
-</ul>
-</ul>
--->
-
 # Testes
 
 Abaixo serão descritos alguns testes que fizemos no protótipo desenvolvido para garantir que teremos respostas coerentes. Como se trata de um sistema remoto e de comunicação serial. Alguns testes demoram pelo menos 10 segundos para ser exibido na tela o resultado. Esse é o tempo que as chamadas das funções seriais da biblioteca Wiring Pi aguardam uma resposta na interface serial. Quando não recebe nada ela finaliza a execução e retorna um código de erro.
@@ -750,11 +740,9 @@ Neste item simulamos via código como se existissem mais de uma nodeMCU concetad
 
 https://github.com/vini-insight/IOinterface/assets/7541966/53370b7c-20af-48bf-aba9-2e53074c07bf
 
-<!-- <p>inserir viídeo aqui.</p> -->
-
 # Conclusão
 
-<p>Analisando o tópico anterior de Resultados podemos ver que o saldo foi positivo neste projeto. Aprendemos sobre a arquitetura ARM do SBC (Orange Pi) e tambpem sobre a arquitetura do microcontrolador nodeMCU, como fazer comunicação serial e como implementar um Sistema Digital a partir da sugestão apresentada (gerenciar várias unidades de sensoriamento remotas). Este projeto pode ser incrementado e melhorado por quem estiver disposto a seguir todos os passos descritos até aqui neste relatório. </p>
+<p>Analisando o tópico anterior de Resultados podemos ver que o saldo foi positivo neste projeto. Aprendemos sobre a arquitetura ARM do SBC (Orange Pi) e tambpem sobre a arquitetura do microcontrolador nodeMCU, como fazer comunicação serial e via MQTT e como implementar um Sistema Digital a partir da sugestão apresentada (gerenciar várias unidades de sensoriamento remotas). Este projeto pode ser incrementado e melhorado por quem estiver disposto a seguir todos os passos descritos até aqui neste relatório. </p>
 
 # Desenvolvedores
 
