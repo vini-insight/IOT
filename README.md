@@ -135,22 +135,6 @@ Enquanto nas outras linguagens para imprimir uma mensagem na gela eram necessár
   
 Neste projeto utilizamos essa linguagem para exibir um gráfico com o histórico de valores mensurados nas unidades de sensoriamento. Uma Interface Homeme Máquina (IHM).
 
-# Protocolo MQTT
-
-MQTT (Message Queuing Telemetry Transport) é um protocolo de comunicação leve e de mensagens assíncronas amplamente utilizado em aplicações de Internet das Coisas (IoT) e sistemas de mensagens em tempo real. Ele foi projetado para ser eficiente em termos de largura de banda, consumo de energia e recursos computacionais, tornando-o ideal para dispositivos com recursos limitados.
-
-O MQTT opera em um modelo de publicação/assinatura, onde os dispositivos se comunicam por meio de um intermediário conhecido como broker. Os dispositivos podem publicar mensagens em tópicos específicos e outros dispositivos podem se inscrever nesses tópicos para receber as mensagens. Isso permite uma comunicação assíncrona e distribuída entre vários dispositivos.
-
-Uma das principais características do MQTT é sua capacidade de lidar com redes instáveis, onde a conectividade pode ser intermitente. Ele suporta três níveis de QoS (Quality of Service) para garantir a entrega das mensagens, de acordo com os requisitos de cada aplicativo.
-
-O MQTT é amplamente adotado em soluções de IoT, onde a eficiência e a escalabilidade são essenciais. Ele é utilizado em uma variedade de aplicações, incluindo monitoramento remoto, automação residencial, agricultura inteligente e cidades inteligentes.
-
-Existem várias bibliotecas MQTT disponíveis, como o Paho, que simplificam a implementação do protocolo em diferentes plataformas e linguagens de programação.
-
-<img src="/images/abstractionMQTT.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
-
-O protocolo funciona basicamente publicando e assinando mensagens. As mensagens são publicadas em tópicos localizados no servidor Broker que redireciona as mensagens recebidas em cada tópico por quem assinou os respectivos tópicos. Quem não assina o tópico não recebe as mensagens daquele tópico. Cada cliente ou dispositivo conectado ao Broker pode publicar, assinar ou ambos.
-
 # Funcionamento do Sistema de Sensoriamento
 
 O usuário pode ligar e desligar o sistema a qualquer momento movimentando a quarta chave de um interruptor liga e desliga. Quando desligado nada é exibido no display de LCD. Quando ligado as opções de um Menu são exibidas. O usuário pode navegar para frente e para trás entre as opções que aparecem na segunda linha do display LCD usando os botões do protótipo. Tembém existe um botão para a confirmar escolhas, que é o mesmo para retornar ao menu depois de exibidas as respostas no display LCD. Para sair de qualquer mensagem ou resposta no LCD, basta pressionar (nos casos de leitura individual) ou manter pressionado (nos casos de monitoramento) o botão de OK.
@@ -727,6 +711,22 @@ Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando
 <p>Para as nodes conectadas via MQTT, não é necessário realizar tal procedimento, podendo mandar a string completa do comando.</p>
 
 <p>O SBC (Orange Pi) por sua vez, deve receber cada um destes envios (respostas) e converte-los para o binário correspondente integral. De posse deste valor o SBC deve fazer outra conversão para valor final em decimal.</p>
+
+# Protocolo MQTT
+
+MQTT (Message Queuing Telemetry Transport) é um protocolo de comunicação leve e de mensagens assíncronas amplamente utilizado em aplicações de Internet das Coisas (IoT) e sistemas de mensagens em tempo real. Ele foi projetado para ser eficiente em termos de largura de banda, consumo de energia e recursos computacionais, tornando-o ideal para dispositivos com recursos limitados.
+
+O MQTT opera em um modelo de publicação/assinatura, onde os dispositivos se comunicam por meio de um intermediário conhecido como broker. Os dispositivos podem publicar mensagens em tópicos específicos e outros dispositivos podem se inscrever nesses tópicos para receber as mensagens. Isso permite uma comunicação assíncrona e distribuída entre vários dispositivos.
+
+Uma das principais características do MQTT é sua capacidade de lidar com redes instáveis, onde a conectividade pode ser intermitente. Ele suporta três níveis de QoS (Quality of Service) para garantir a entrega das mensagens, de acordo com os requisitos de cada aplicativo.
+
+O MQTT é amplamente adotado em soluções de IoT, onde a eficiência e a escalabilidade são essenciais. Ele é utilizado em uma variedade de aplicações, incluindo monitoramento remoto, automação residencial, agricultura inteligente e cidades inteligentes.
+
+Existem várias bibliotecas MQTT disponíveis, como o Paho, que simplificam a implementação do protocolo em diferentes plataformas e linguagens de programação.
+
+<img src="/images/abstractionMQTT.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
+
+O protocolo funciona basicamente publicando e assinando mensagens. As mensagens são publicadas em tópicos localizados no servidor Broker que redireciona as mensagens recebidas em cada tópico por quem assinou os respectivos tópicos. Quem não assina o tópico não recebe as mensagens daquele tópico. Cada cliente ou dispositivo conectado ao Broker pode publicar, assinar ou ambos.
 
 # Interface
 
