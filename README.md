@@ -684,7 +684,7 @@ Ja este diagrama mostra essa mesma comunicação realizada via MQTT, adicionando
 # Interface
 
 <p>
-	<img src="/images/interface.jpeg" alt="img" align="center" >
+	<img src="/images/interface.jpeg" alt="img" align="center" style="height: 40%; width: 40%;">
 </p>
 
 <p>
